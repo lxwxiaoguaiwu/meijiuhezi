@@ -1,0 +1,95 @@
+/* pages/nopeople/index.wxss */
+page{
+  height: 100%;
+  position: relative
+}
+.view{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f4f4f4;
+}
+.boxstatu.jianshe{
+  background-color: #777;
+}
+.bg{
+  width: 100%;
+}
+.boxxinxi{
+  display: flex;
+}
+.boxstatu{
+  background-color: #ea5504;
+  width: 100rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+.bg1{
+  width: 100%;
+  position: absolute;
+  top: 270rpx;
+}
+.imgbox{
+  width: 136rpx;
+  height: 136rpx;
+}
+.dingwei{
+  width: 26rpx;
+  height: 32rpx;
+}
+.wineboxs{
+  width: 100%;
+  margin: 0 auto;
+}
+.winebox{
+  display: flex;
+  margin-bottom: 30rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  box-shadow: 5rpx 5rpx 5rpx #aaa;
+}
+.winebox .right{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.name1{
+  display: flex;
+  flex-direction: column;
+  
+}
+.n-title{
+  font-size: 36rpx;
+  color: #333;
+  letter-spacing: 5rpx;
+  margin-bottom: 35rpx;
+}
+.m-title{
+  font-size: 32rpx;
+  color: #777;
+  letter-spacing: 5rpx;
+}
+.color{
+  color: #ea5504;
+}
+.winebox .name{
+  display: flex;
+  margin-left: 20rpx;
+}
+.dingwei{
+  margin-right: 10rpx;
+  margin-top: 8rpx;
+}
+.jiantou{
+  display: flex;
+  border-right: 7rpx solid #777; border-bottom: 7rpx solid #777;  
+  width: 30rpx; height: 30rpx;  
+  transform: rotate(-45deg);
+}

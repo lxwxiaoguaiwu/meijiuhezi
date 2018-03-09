@@ -1,0 +1,192 @@
+/* pages/nopeople/place/place.wxss */
+page{
+  background-color:#f4f4f4;
+}
+.bwizard-steps {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background: #fff;
+  justify-content: center
+}
+.bwizard-steps li {
+  display: flex;
+  position: relative;
+  margin-right: 30rpx;
+  line-height: 22rpx;
+  list-style: none;
+  /* padding: 24rpx 34rpx 20rpx 60rpx; */
+  width: 215rpx;
+  height: 50rpx;
+  background: #999999;
+  zoom: 1;
+  display: inline;
+  padding-left: 40rpx
+}
+.bwizard-steps li a{
+  font-size: 26rpx;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  line-height: 50rpx;
+
+}
+.bwizard-steps li:first-child {
+  -moz-border-radius: 4rpx 0 0 4rpx;
+  -webkit-border-radius: 4prx 0 0 4rpx;
+  border-radius: 4rpx 0 0 4rpx;
+  padding-left: 12rpx
+}
+
+.bwizard-steps li:first-child:before {
+  border: 0
+}
+
+.bwizard-steps li:last-child {
+  -moz-border-radius: 0 4rpx 4rpx 0;
+  -webkit-border-radius: 0 4rpx 4rpx 0;
+  border-radius: 0 4rpx 4rpx 0;
+  margin-right: 0
+}
+
+.bwizard-steps li:last-child:after {
+  border: 0
+}
+
+.bwizard-steps li:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  border-bottom: 25rpx inset transparent;
+  border-left: 25rpx solid #fff;
+  border-top: 25rpx inset transparent;
+  content: ""
+}
+
+.bwizard-steps li:after {
+  position: absolute;
+  right: -20rpx;
+  top: 0;
+  height: 0;
+  width: 0;
+  border-bottom: 25rpx inset transparent;
+  border-left: 25rpx solid #999999;
+  border-top: 25rpx inset transparent;
+  content: "";
+  z-index: 2
+}
+.bwizard-steps .active {
+  color: #fff;
+  background: #ea5504
+}
+.bwizard-steps .active:after {
+  border-left-color: #ea5504
+}
+.cardbox{
+  width: 100%;
+  background-color: #fff;
+  /* box-shadow: 8rpx 8rpx 3rpx #888888; */
+}
+.navcard{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  background-color: #fff;
+}
+.navcard .location{
+  margin-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+.navcard .location image{
+  width: 26rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+}
+.navcard .location .address{
+  font-size: 26rpx;
+  color: #333;
+  background-color: #f1f1f1;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  letter-spacing: 1rpx;
+}
+.buygoods{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.buygoods .buygoods_title{
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+  height: 80rpx;
+  display: block;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.buygoods_content{
+  /* width: 90%;
+  margin: 0 auto; */
+  padding-top: 34rpx;
+}
+.buygoods_content .content_list{
+  display: flex;
+  padding: 0 34rpx;
+  padding-bottom: 43rpx;
+  padding-top: 34rpx;
+  border-bottom: 1rpx solid #e5e5e5
+}
+.buygoods_content .content_list .pic{
+  margin-right: 46rpx;
+}
+.buygoods_content .content_list .pic image{
+  width: 29rpx;
+  height: 97rpx;
+}
+.buygoods_content .content_list .content_words{
+  flex: 1;
+}
+.buygoods_content .content_list .content_words .words_title{
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 42rpx;
+}
+.buygoods_content .content_list .content_words .num{
+  display: flex;
+  justify-content: space-between
+}
+.buygoods_content .content_list .content_words .num .count{
+  font-size: 26rpx;
+  color: #666;
+}
+.buygoods_content .content_list .content_words .num .price{
+  font-size: 30rpx;
+  color: #ea5504;
+}
+.payment{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.payment .money{
+  height: 92rpx;
+  background-color: #fff;
+  justify-content: flex-end;
+  line-height: 92rpx;
+  display: flex;
+  color: #333;
+  font-size: 30rpx;
+  padding-right: 5%;
+}
+.payment .money .price{
+  color: #ea5504;
+}
+.payment .submit{
+  height: 100rpx;
+  background-color: #ea5504;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 100rpx;
+}

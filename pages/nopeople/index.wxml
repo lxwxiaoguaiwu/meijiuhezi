@@ -1,0 +1,36 @@
+<!--pages/nopeople/index.wxml-->
+<view class='view'>
+  <image mode="widthFix" class='bg' src='/pages/images/bg.png'></image>
+  <view class='bg1'>
+    <view class='wineboxs'>
+      <block wx:for="{{boxlists}}" wx:key="index">
+        <view class='winebox' id='{{item.id}}' data-name='{{item.name}}' data-status='{{item.status}}' data-lng='{{item.longitude}}' data-lat='{{item.latitude}}' bindtap='gonopeople'>
+          <image mode="widthFix" class='imgbox' src='/pages/images/box.png'></image>
+          <view class='right'>
+            <view class='name'>
+              <image mode="widthFix" class='dingwei' src='/pages/images/home_address_icon.png'></image>
+              <view class='name1'>
+                <view class='boxxinxi'>
+                  <view class='n-title'>{{item.name}}</view>
+                  <block wx:if="{{item.status=='营业中'}}">
+                    <text class='boxstatu'>{{item.status}}</text>
+                  </block>
+                  <block wx:if="{{item.status=='建设中'}}">
+                    <text class='boxstatu jianshe'>{{item.status}}</text>
+                  </block>
+                  <block wx:if="{{item.status=='维护中'}}">
+                    <text class='boxstatu jianshe'>{{item.status}}</text>
+                  </block>
+                </view>
+                <view class='m-title'>酒柜距离您
+                  <text class='color'>{{item.juli}}米</text>
+                </view>
+              </view>
+            </view>
+            <view class='jiantou'></view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

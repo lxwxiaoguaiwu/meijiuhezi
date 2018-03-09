@@ -1,0 +1,55 @@
+<!--pages/personal/personal.wxml-->
+<view class="container1">
+  <image class='personalbg' mode="widthFix" src="/pages/images/personal_bg.png"></image>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+     <text class="userinfo-nickname">{{userInfo.name}}</text> 
+  </view>
+  <view class='nopeopleorder'>
+    <view class="order" bindtap="toOrder">
+      <view class='ordicon'></view>
+      <text class="myorder-text">无人购订单</text>
+    </view>
+    <view class="navs">
+      <view class="nav-item" data-current="0" bindtap="yifukuan">
+        <image src="../images/paymenthasbeen_icon.png" class="nav-image" />
+        <text>已付款</text>
+      </view>
+      <view class="nav-item" data-current="1" bindtap="daishiyong">
+        <image src="../images/tobeus_icon.png" class="nav-image" />
+        <text>待使用</text>
+      </view>
+      <view class="nav-item" data-current="2" bindtap="daipingjia">
+        <image src="../images/comments_icon.png" class="nav-image" />
+        <text>待评价</text>
+      </view>
+    </view>
+  </view>
+  <view class='nopeopleorder yidaogoorder'>
+    <view class="order" bindtap="toOrderyidao">
+      <view class='ordicon'></view>
+      <text class="myorder-text">易到购订单</text>
+    </view>
+    <view class="navs">
+      <view class="nav-item" data-current="0" bindtap="tabNav">
+        <image src="../images/paymenthasbeen_icon.png" class="nav-image" />
+        <text>已付款</text>
+      </view>
+      <view class="nav-item" data-current="1" bindtap="totabNavto">
+        <image src="../images/for_the_payment_icon.png" class="nav-image" />
+        <text>未付款</text>
+      </view>
+      <view class="nav-item" data-current="2" bindtap="comment">
+        <image src="../images/comments_icon.png" class="nav-image" />
+        <text>待评价</text>
+      </view>
+    </view>
+  </view>
+  <view class="person-list">
+    <view class="list-item">
+      <image class="item-image" mode="widthFix" src="../images/we_icon.png"></image>
+      <text class="item-text" bindtap='goAboutme'>关于我们</text>
+    </view>
+  </view>
+  <view class="separate"></view>
+</view>

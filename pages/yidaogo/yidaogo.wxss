@@ -1,0 +1,102 @@
+/* pages/yidaogo/yidaogo.wxss */
+page{
+  background-color:#f4f4f4;
+  height: 100%;
+}
+.nobeer{
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.slide-image{
+  width: 100%;
+  height: 100%;
+}
+.banner{
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  padding-top: 50rpx;
+  padding-bottom: 30rpx;
+}
+.banner image{
+  width: 150rpx;
+  height: 350rpx;
+}
+.detailebox{
+  width: 100%;
+  height: 100%; 
+}
+.swiper-tab{  
+  width: 100%;  
+  border-bottom: 2rpx solid #e5e5e5;
+  text-align: center;  
+  line-height: 80rpx;
+  background-color: #fff;
+  display: flex
+}  
+.swiper-tab-list{  
+  font-size: 30rpx;  
+  display: inline-block;  
+  width: 33.33%;  
+  color: #333;  
+}  
+.on{ 
+  color: #da7c0c;  
+  border-bottom: 5rpx solid #da7c0c;
+}  
+swiper{
+    /* height: 100%;   */
+    width: 100%;
+}
+.swiper-box{
+  display: block; 
+   height: 100%;  
+  width: 100%;
+  background-color: #fff;
+  /* overflow: hidden;  */
+}  
+/* .swiper-box view{  
+  text-align: center;  
+}  */
+.redwine-lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  margin-top: 30rpx;
+  width: 90%;
+  margin: 0 auto;
+  /* height: 100%; */
+}
+scroll-view{
+  margin-top: 20rpx;
+}
+.redwine-lists .list{
+  border: 1rpx solid #e5e5e5;
+  width: 305rpx;
+  /* height: 396rpx; */
+  margin-bottom: 23rpx;
+  padding-top: 38rpx;
+  padding-bottom: 38rpx;
+  /* margin-right: 20rpx; */
+}
+.redwine-lists .list image{
+  width: 60rpx;
+  height: 208rpx;
+  display: block;
+  margin: 0 auto
+}
+.redwine-lists .list .winename{
+  font-size: 24rpx;
+  color: #333;
+  display: block;
+  text-align: center;
+  padding: 30rpx 30rpx;
+}
+.redwine-lists .list .price{
+  font-size: 24rpx;
+  color: #ea5504;
+  display: block;
+  text-align: center
+}

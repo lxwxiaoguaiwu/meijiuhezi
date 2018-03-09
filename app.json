@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/nopeople/index",
+    "pages/nopeople/nopeople",
+    "pages/nopeople/winedetaile/winedetaile",
+    "pages/nopeople/place/place",
+    "pages/nopeople/success/success",
+    "pages/personal/personal",
+    "pages/yidaogo/yidaogo",
+    "pages/order/order",
+    "pages/yidaoorder/yidaoorder",
+    "pages/yidaogo/yidaodetaile/yidaodetaile",
+    "pages/yidaogo/place/place",
+    "pages/yidaogo/success/success",
+    "pages/personal/aboutme/aboutme",
+    "pages/yidaogo/jiesuan/jiesuan",
+    "pages/yidaogo/address_multi/address_multi"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ea5504",
+    "navigationBarTitleText": "美酒盒子",
+    "navigationBarTextStyle":"#fff"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#F9FAF9",
+    "selectedColor": "red",
+    "list": [
+      {
+        "pagePath": "pages/nopeople/index",
+        "iconPath": "pages/images/home_too_nothing_n.png",
+        "selectedIconPath": "pages/images/home_too_nothing_h.png",
+        "text": "无人Go"
+      },
+      {
+        "pagePath": "pages/yidaogo/yidaogo",
+        "iconPath": "pages/images/home_too_shopping_n.png",
+        "selectedIconPath": "pages/images/home_too_shopping_h.png",
+        "text": "易到Go"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "iconPath": "pages/images/home_too_me_n.png",
+        "selectedIconPath": "pages/images/home_too_me_h.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

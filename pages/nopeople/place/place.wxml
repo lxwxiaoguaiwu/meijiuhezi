@@ -1,0 +1,41 @@
+<!--pages/nopeople/place/place.wxml-->
+  <view class='cardbox'>
+    <view class='navcard'>
+      <ol class="nav bwizard-steps clearfix clickable" role="tablist">
+        <li role="tab" aria-selected="true" class="active" style="z-index: 4;">
+          <a href="#step1" class="hidden-phone"><text style='font-size: 28rpx;'>01</text><text>选择商品</text></a>
+        </li>
+        <li role="tab" aria-selected="false" class="active" style="z-index: 2;">
+          <a href="#step3" class="hidden-phone"><text style='font-size: 28rpx;'>02</text><text>确认订单</text></a>
+        </li>
+        <li role="tab" aria-selected="false" style="z-index: 1;">
+        <a href="#step4" class="hidden-phone"><text style='font-size: 28rpx;'>03</text><text>购买成功</text></a>
+        </li>
+      </ol>
+      <block wx:for="{{boxlist}}" wx:key = "index">
+        <view class='location'>
+          <image src="../../images/home_address_icon.png" alt="" />
+          <text class='address'>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='buygoods'>
+    <text class='buygoods_title'>购买商品</text>
+    <view class='buygoods_content'>
+      <view class='content_list'>
+        <view class='pic'><image src="{{submitlist.pic}}" alt="" /></view>
+        <view class='content_words'>
+          <view class='words_title'>{{submitlist.name}}</view>
+          <view class='num'>
+            <text class='count'>数量：{{submitlist.num}}瓶</text>
+            <text class='price'>￥{{submitlist.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='payment'>
+    <view class='money'>付款：<view class='price'>￥{{submitlist.price}}</view></view>
+    <view class='submit' bindtap='goSubmit' data-submit='{{submitlist}}'>提交订单</view>
+  </view>

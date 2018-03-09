@@ -1,0 +1,107 @@
+/* pages/yidaogo/jiesuan/jiesuan.wxss */
+page{
+  background-color:#f4f4f4;
+}
+.bg{
+  background-color: #fff;
+}
+.my-count{
+  flex: 1;
+  text-align: center;
+  background-color: #333;
+}
+.my-bnts{
+  flex: 1;
+  text-align: center;
+}
+.cartitlebox{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+}
+.cartitle1{
+  margin-left: 5%;
+}
+.qingkong{
+  margin-right: 5%;
+}
+.none{
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.xuangou{
+  font-size: 28rpx;
+  background-color: #ea5503;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.cartitle{
+  /* background-color: #fff; */
+  /* text-align: center; */
+  /* width: 100%; */
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 20rpx;
+}
+.my-tlt{
+  font-size: 24rpx;
+}
+.my-left{
+  width: 350rpx;
+}
+.my-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.my-list image{
+  width: 60rpx;
+  height: 208rpx;
+}
+.float{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #ea5503;
+}
+.my-bnt{
+  display: flex;
+}
+.my-rightbox{
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  line-height: 100rpx;
+  color: #fff;
+}
+.my-title{
+  font-size: 24rpx;
+}
+.my-check{
+}
+.disabled.bnt,
+.normal.bnt,
+.int{
+  width: 40rpx;
+  text-align: center;
+  border: 1rpx solid #eee;
+}
+.my-right{
+  font-size: 24rpx;
+  color: red;
+}
+.carts-item{
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 20rpx;
+}

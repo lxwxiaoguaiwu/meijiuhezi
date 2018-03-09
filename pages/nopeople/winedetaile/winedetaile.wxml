@@ -1,0 +1,622 @@
+<!--pages/nopeople/winedetaile/winedetaile.wxml-->
+<view class='cardbox'>
+  <view class='navcard'>
+    <ol class="nav bwizard-steps clearfix clickable" role="tablist">
+      <li role="tab" aria-selected="true" class="active" style="z-index: 4;">
+        <a href="#step1" class="hidden-phone">
+          <text style='font-size: 28rpx;'>01</text>
+          <text>选择商品</text>
+        </a>
+      </li>
+      <li role="tab" aria-selected="false" style="z-index: 2;">
+        <a href="#step3" class="hidden-phone">
+          <text style='font-size: 28rpx;'>02</text>
+          <text>确认订单</text>
+        </a>
+      </li>
+      <li role="tab" aria-selected="false" style="z-index: 1;">
+        <a href="#step4" class="hidden-phone">
+          <text style='font-size: 28rpx;'>03</text>
+          <text>购买成功</text>
+        </a>
+      </li>
+    </ol>
+    <view class='location' bindtap='choiceMap'>
+      <image src="../../images/home_address_icon.png" alt="" />
+      <text class='address'>当前酒柜：{{boxname}}</text>
+    </view>
+  </view>
+</view>
+<view class='detailebox'>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab ? 'on' : ''}}" data-current="0" bindtap="swichNav">商品</view>
+    <view class="swiper-tab-list {{currentTab1 ? 'on' : ''}}" data-current="1" bindtap="swichNav1">详情</view>
+    <view class="swiper-tab-list {{currentTab2 ? 'on' : ''}}" data-current="2" bindtap="swichNav2">评价</view>
+  </view>
+  <view current="{{currentTab}}" class='swiper-box' duration="300">
+    <!-- 我是商品 -->
+    <view class="{{currentTab ? 'show' : 'hiddle'}}">
+      <!-- <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}"> -->
+      <view class='box1'>
+        <view class='commodity'>
+          <image mode="widthFix" catchtap="previewlmg" data-url="{{list.asset}}" src="{{list.asset}}" alt="" />
+          <view class='words'>
+            <text class='title'>{{list.name}}</text>
+            <text class='number'>编号：{{list.serial}}</text>
+            <view class='synopsis'>
+              <view class='price'>
+                <text class='dq-price'>￥{{list.currprice}}</text>
+                <text class='y-price'>原价：￥{{list.preprice}}</text>
+              </view>
+              <text class='surplus'>酒架剩余：{{list.number}}瓶</text>
+            </view>
+          </view>
+          <view class='explain'>
+            <text>说明</text>
+            <text class='zheng'>正</text>
+            <text>正品保证</text>
+            <text class='pei'>赔</text>
+            <text>假一赔十</text>
+          </view>
+        </view>
+        <view class='commentbox'>
+          <view class='comment'>
+            <view class='comment-title'>
+              <text class='l-title' data-current="2" bindtap="swichNav">只有购买过的顾客才能打标签</text>
+            </view>
+            <block wx:if="{{list.leibie=='红酒'}}">
+              <block wx:if="{{comments==''}}">
+                <view class='comment-list'>
+                  <view class='pingjiabox'>
+                    <block wx:for="{{items}}" wx:key="index">
+                      <view class='pingjia'>
+                        <view class='genderbox'>
+                          <image class='baijiucomm' mode="widthFix" src="{{item.src}}" alt="" />
+                          <text>{{item.value}}</text>
+                          <view class='gender'>
+                            <view class='nanbox'>
+                              <view class='manbox zan'>
+                                <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                                <view>0人</view>
+                              </view>
+                              <view class='manbox'>
+                                <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                                <view>0%</view>
+                              </view>
+                              <view class='manbox woman'>
+                                <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                                <view>0%</view>
+                              </view>
+                            </view>
+                            <view class='pbox'>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </block>
+              <view class='comment-list'>
+                <view class='pingjiabox'>
+                  <block wx:for="{{comments}}" wx:key="index">
+                    <view class='pingjia'>
+                      <view class='genderbox'>
+                        <block wx:if="{{item.code==1001}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                          <text>果味十足</text>
+                        </block>
+                        <block wx:if="{{item.code==1002}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1202.png" alt="" />
+                          <text>味道浓郁</text>
+                        </block>
+                        <block wx:if="{{item.code==1003}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1203.png" alt="" />
+                          <text>清新爽口</text>
+                        </block>
+                        <block wx:if="{{item.code==1004}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1204.png" alt="" />
+                          <text>口感饱满</text>
+                        </block>
+                        <block wx:if="{{item.code==1005}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1205.png" alt="" />
+                          <text>复杂平衡</text>
+                        </block>
+                        <view class='gender'>
+                          <view class='nanbox'>
+                            <view class='manbox zan'>
+                              <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                              <view>{{item.allpeople}}人</view>
+                            </view>
+                            <view class='manbox'>
+                              <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                              <block wx:if="{{item.maleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.maleco!=null}}">
+                                <view>{{item.percent}}%</view>
+                              </block>
+                            </view>
+                            <view class='manbox woman'>
+                              <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                              <block wx:if="{{item.femaleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.femaleco!=null}}">
+                                <view>{{item.nvpercent}}%</view>
+                              </block>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+                <!-- <view data-current="2" class='allcomment' bindtap='allComment'>查看全部</view> -->
+              </view>
+            </block>
+            <block wx:if="{{list.leibie=='白酒'}}">
+              <block wx:if="{{bcomments==''}}">
+                <view class='comment-list'>
+                  <view class='pingjiabox'>
+                    <block wx:for="{{bitems}}" wx:key="index">
+                      <view class='pingjia'>
+                        <view class='genderbox'>
+                          <image class='baijiucomm' mode="widthFix" src="{{item.src}}" alt="" />
+                          <text>{{item.value}}</text>
+                          <view class='gender'>
+                            <view class='nanbox'>
+                              <view class='manbox zan'>
+                                <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                                <view>0人</view>
+                              </view>
+                              <view class='manbox'>
+                                <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                                <view>0%</view>
+                              </view>
+                              <view class='manbox woman'>
+                                <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                                <view>0%</view>
+                              </view>
+                            </view>
+                            <view class='pbox'>
+                              <!-- <progress percent="50" stroke-width="4" color='#00A0E9' backgroundColor='#EB0303' /> -->
+                              <!-- <view class='tongji'>42个已购买的顾客认为酒香馥郁</view> -->
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </block>
+              <view class='comment-list'>
+                <view class='pingjiabox'>
+                  <block wx:for="{{bcomments}}" wx:key="index">
+                    <view class='pingjia'>
+                      <view class='genderbox'>
+                        <block wx:if="{{item.code==1201}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                          <text>酒香馥郁</text>
+                        </block>
+                        <block wx:if="{{item.code==1202}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1202.png" alt="" />
+                          <text>优雅醇厚</text>
+                        </block>
+                        <block wx:if="{{item.code==1203}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1203.png" alt="" />
+                          <text>绵甜爽口</text>
+                        </block>
+                        <block wx:if="{{item.code==1204}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1204.png" alt="" />
+                          <text>入口柔顺</text>
+                        </block>
+                        <block wx:if="{{item.code==1205}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1205.png" alt="" />
+                          <text>回味悠长</text>
+                        </block>
+                        <view class='gender'>
+                          <view class='nanbox'>
+                            <view class='manbox zan'>
+                              <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                              <view>{{item.allpeople}}人</view>
+                            </view>
+                            <view class='manbox'>
+                              <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                              <block wx:if="{{item.maleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.maleco!=null}}">
+                                <view>{{item.percent}}%</view>
+                              </block>
+                            </view>
+                            <view class='manbox woman'>
+                              <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                              <block wx:if="{{item.femaleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.femaleco!=null}}">
+                                <view>{{item.nvpercent}}%</view>
+                              </block>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+                <!-- <view data-current="2" class='allcomment' bindtap='allComment'>查看全部</view> -->
+              </view>
+            </block>
+            <block wx:if="{{list.leibie=='洋酒'}}">
+              <block wx:if="{{ycomments==''}}">
+                <view class='comment-list'>
+                  <view class='pingjiabox'>
+                    <block wx:for="{{yitems}}" wx:key="index">
+                      <view class='pingjia'>
+                        <view class='genderbox'>
+                          <image class='baijiucomm' mode="widthFix" src="{{item.src}}" alt="" />
+                          <text>{{item.value}}</text>
+                          <view class='gender'>
+                            <view class='nanbox'>
+                              <view class='manbox zan'>
+                                <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                                <view>0人</view>
+                              </view>
+                              <view class='manbox'>
+                                <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                                <view>0%</view>
+                              </view>
+                              <view class='manbox woman'>
+                                <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                                <view>0%</view>
+                              </view>
+                            </view>
+                            <view class='pbox'>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </block>
+              <view class='comment-list'>
+                <view class='pingjiabox'>
+                  <block wx:for="{{ycomments}}" wx:key="index">
+                    <view class='pingjia'>
+                      <view class='genderbox'>
+                        <block wx:if="{{item.code==1101}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                          <text>口感浓烈</text>
+                        </block>
+                        <block wx:if="{{item.code==1102}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1202.png" alt="" />
+                          <text>柔和顺滑</text>
+                        </block>
+                        <block wx:if="{{item.code==1103}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1203.png" alt="" />
+                          <text>香气复杂</text>
+                        </block>
+                        <block wx:if="{{item.code==1104}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1204.png" alt="" />
+                          <text>色泽清澈</text>
+                        </block>
+                        <block wx:if="{{item.code==1105}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1205.png" alt="" />
+                          <text>回味悠长</text>
+                        </block>
+                        <view class='gender'>
+                          <view class='nanbox'>
+                            <view class='manbox zan'>
+                              <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                              <view>{{item.allpeople}}人</view>
+                            </view>
+                            <view class='manbox'>
+                              <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                              <block wx:if="{{item.maleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.maleco!=null}}">
+                                <view>{{item.percent}}%</view>
+                              </block>
+                            </view>
+                            <view class='manbox woman'>
+                              <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                              <block wx:if="{{item.femaleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.femaleco!=null}}">
+                                <view>{{item.nvpercent}}%</view>
+                              </block>
+                            </view>
+                          </view>
+                          <!-- <view class='pbox'>
+                            <block wx:if="{{item.maleco==0 && item.femaleco==0}}">
+                              <progress percent="50" stroke-width="4" color='#00A0E9' backgroundColor='#EB0303' />
+                            </block>
+                            <block wx:if="{{item.maleco!=0 || item.femaleco!=0}}">
+                              <progress percent="{{item.percent}}" stroke-width="4" color='#00A0E9' backgroundColor='#EB0303' />
+                            </block>
+                            <block wx:if="{{item.code==1101}}">
+                              <view class='tongji'>{{item.allpeople}}个已购买的顾客认为口感浓烈</view>
+                            </block>
+                            <block wx:if="{{item.code==1102}}">
+                              <view class='tongji'>{{item.allpeople}}个已购买的顾客认为柔和顺滑</view>
+                            </block>
+                            <block wx:if="{{item.code==1103}}">
+                              <view class='tongji'>{{item.allpeople}}个已购买的顾客认为香气复杂</view>
+                            </block>
+                            <block wx:if="{{item.code==1104}}">
+                              <view class='tongji'>{{item.allpeople}}个已购买的顾客认为色泽清澈</view>
+                            </block>
+                            <block wx:if="{{item.code==1105}}">
+                              <view class='tongji'>{{item.allpeople}}个已购买的顾客认为回味悠长</view>
+                            </block>
+                          </view> -->
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+                <!-- <view data-current="2" class='allcomment' bindtap='allComment'>查看全部</view> -->
+              </view>
+            </block>
+            <block wx:if="{{list.leibie=='啤酒'}}">
+              <block wx:if="{{pcomments==''}}">
+                <view class='comment-list'>
+                  <view class='pingjiabox'>
+                    <block wx:for="{{yitems}}" wx:key="index">
+                      <view class='pingjia'>
+                        <view class='genderbox'>
+                          <block wx:if="{{item.code==1101}}">
+                            <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                            <text>口感浓烈</text>
+                          </block>
+                          <block wx:if="{{item.code==1102}}">
+                            <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                            <text>柔和顺滑</text>
+                          </block>
+                          <block wx:if="{{item.code==1103}}">
+                            <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                            <text>香气复杂</text>
+                          </block>
+                          <block wx:if="{{item.code==1104}}">
+                            <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                            <text>色泽清澈</text>
+                          </block>
+                          <block wx:if="{{item.code==1105}}">
+                            <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                            <text>回味悠长</text>
+                          </block>
+                          <view class='gender'>
+                            <view class='nanbox'>
+                              <view class='manbox zan'>
+                                <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                                <view>{{item.allpeople}}人</view>
+                              </view>
+                              <view class='manbox'>
+                                <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                                <block wx:if="{{item.maleco==null}}">
+                                  <view>0%</view>
+                                </block>
+                                <block wx:if="{{item.maleco!=null}}">
+                                  <view>{{item.percent}}%</view>
+                                </block>
+                              </view>
+                              <view class='manbox woman'>
+                                <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                                <block wx:if="{{item.femaleco==null}}">
+                                  <view>0%</view>
+                                </block>
+                                <block wx:if="{{item.femaleco!=null}}">
+                                  <view>{{item.nvpercent}}%</view>
+                                </block>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </block>
+              <view class='comment-list'>
+                <view class='pingjiabox'>
+                  <block wx:for="{{pcomments}}" wx:key="index">
+                    <view class='pingjia'>
+                      <view class='genderbox'>
+                        <block wx:if="{{item.code==1301}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1201.png" alt="" />
+                          <text>泡沫丰富</text>
+                        </block>
+                        <block wx:if="{{item.code==1302}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1202.png" alt="" />
+                          <text>酒体厚重</text>
+                        </block>
+                        <block wx:if="{{item.code==1303}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1203.png" alt="" />
+                          <text>口感清爽</text>
+                        </block>
+                        <block wx:if="{{item.code==1304}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1204.png" alt="" />
+                          <text>味道复杂</text>
+                        </block>
+                        <block wx:if="{{item.code==1305}}">
+                          <image class='baijiucomm' mode="widthFix" src="/pages/images/1205.png" alt="" />
+                          <text>苦中带甜</text>
+                        </block>
+                        <view class='gender'>
+                          <view class='nanbox'>
+                            <view class='manbox zan'>
+                              <image class='man' mode="widthFix" src="/pages/images/praise_icon.png" alt="" />
+                              <view>{{item.allpeople}}人</view>
+                            </view>
+                            <view class='manbox'>
+                              <image class='man' mode="widthFix" src="/pages/images/WechatIMG36.png" alt="" />
+                              <block wx:if="{{item.maleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.maleco!=null}}">
+                                <view>{{item.percent}}%</view>
+                              </block>
+                            </view>
+                            <view class='manbox woman'>
+                              <image class='man woman' mode="widthFix" src="/pages/images/WechatIMG37.png" alt="" />
+                              <block wx:if="{{item.femaleco==null}}">
+                                <view>0%</view>
+                              </block>
+                              <block wx:if="{{item.femaleco!=null}}">
+                                <view>{{item.nvpercent}}%</view>
+                              </block>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+
+                    </view>
+                  </block>
+                </view>
+                <!-- <view data-current="2" class='allcomment' bindtap='allComment'>查看全部</view> -->
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <!-- </scroll-view> -->
+    </view>
+    <!-- 我是详情 -->
+    <view class="{{currentTab1 ? 'show' : 'hiddle'}}">
+      <!-- <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}"> -->
+      <view class='detaile_pic'>
+        <block wx:for="{{imglists}}" wx:key="index">
+          <view class='picbox'>
+            <image mode="widthFix" src="{{item.asset}}" alt="" />
+          </view>
+        </block>
+      </view>
+      <block wx:if="{{list.leibie=='红酒'}}">
+        <view class='openidea'>
+          <image mode="widthFix" class='kaiqiwine' src="../../images/pingjiu.jpg" alt="" />
+          <view class='cunchubox'>
+            <text class='cuchun-title'>葡萄酒最佳存储环境:</text>
+            <view class='flex'>
+              <view class='environment'>
+                <image mode="widthFix" class='hengwen' src="../../images/hengwen.jpg" alt="" />
+                <view class='ewords'>
+                  <view class='title'>恒温</view>
+                  <view class='ttitle'>一般16-18摄氏度</view>
+                </view>
+              </view>
+              <view class='environment'>
+                <image mode="widthFix" class='hengwen' src="../../images/hengshi.jpg" alt="" />
+                <view class='ewords'>
+                  <view class='title'>恒湿</view>
+                  <view class='ttitle'>一般70%左右相对湿度</view>
+                </view>
+              </view>
+              <view class='environment'>
+                <image mode="widthFix" class='hengwen' src="../../images/biguang.jpg" alt="" />
+                <view class='ewords'>
+                  <view class='title'>避光</view>
+                  <view class='ttitle'>避免紫外线或强光直射</view>
+                </view>
+              </view>
+              <view class='environment'>
+                <image mode="widthFix" class='hengwen' src="../../images/bizhen.jpg" alt="" />
+                <view class='ewords'>
+                  <view class='title'>避震</view>
+                  <view class='ttitle'>不用轻易晃动葡萄酒</view>
+                </view>
+              </view>
+              <view class='environment wofang'>
+                <image mode="widthFix" class='hengwen' src="../../images/wofang.jpg" alt="" />
+                <view class='ewords'>
+                  <view class='title'>卧放</view>
+                  <view class='ttitle'>木塞封瓶的葡萄酒最好卧放，让酒液浸润木塞，以免木塞干缩、透入空气</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- </scroll-view> -->
+    </view>
+    <!-- 我是评价 -->
+    <view class="{{currentTab2 ? 'show' : 'hiddle'}}">
+      <view class='commentbox'>
+        <view class='comment'>
+          <view class='comment-list'>
+            <block wx:if="{{alcrecords==''}}">
+              <view class='nocomm'>暂无评价</view>
+            </block>
+            <block wx:for="{{alcrecords}}" wx:key="index">
+              <view class='list'>
+                <image class='userasset' mode="widthFix" src="{{item.asset}}" alt="" />
+                <view class='c-box'>
+                  <text>{{item.name}}对{{list.name}}进行标签点评<block wx:for="{{item.tagsc}}" wx:key="index">
+                      <block wx:if="{{item=='1003'}}">“清新爽口”</block>
+                      <block wx:if="{{item=='1004'}}">“口感饱满”</block>
+                      <block wx:if="{{item=='1005'}}">“复杂平衡”</block>
+                      <block wx:if="{{item=='1001'}}">“果味十足”</block>
+                      <block wx:if="{{item=='1002'}}">“味道浓郁”</block>
+                      
+                      <block wx:if="{{item=='1103'}}">“香气复杂”</block>
+                      <block wx:if="{{item=='1104'}}">“色泽清澈”</block>
+                      <block wx:if="{{item=='1105'}}">“回味悠长”</block>
+                      <block wx:if="{{item=='1101'}}">“口感浓烈”</block>
+                      <block wx:if="{{item=='1102'}}">“柔和顺滑”</block>
+
+                      <block wx:if="{{item=='1203'}}">“绵甜爽口”</block>
+                      <block wx:if="{{item=='1204'}}">“入口柔顺”</block>
+                      <block wx:if="{{item=='1205'}}">“回味悠长”</block>
+                      <block wx:if="{{item=='1201'}}">“酒香馥郁”</block>
+                      <block wx:if="{{item=='1202'}}">“优雅醇厚”</block>
+
+                      <block wx:if="{{item=='1303'}}">“口感清爽”</block>
+                      <block wx:if="{{item=='1304'}}">“味道复杂”</block>
+                      <block wx:if="{{item=='1305'}}">“苦中带甜”</block>
+                      <block wx:if="{{item=='1301'}}">“泡沫丰富”</block>
+                      <block wx:if="{{item=='1302'}}">“酒体厚重”</block>
+                    </block>
+                    </text>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='fixed'>
+  <text class='home' bindtap='gohomepage'>返回首页</text>
+  <text class='buy' bindtap="viewFlowerArea">立即购买</text>
+</view>
+<view class="commodity_screen" bindtap="deleteArea" wx:if="{{showModalStatus2}}"></view>
+<view bindtap='text' animation="{{animationData}}" class="catalog_area bg_fff {{isHidden == 1 ? 'display-block':'display-none'}}">
+  <view class="catalog_title" id="{{list.id}}">
+    <image mode="widthFix" src="{{list.asset}}" alt="" />
+    <view class="info_tip">
+      <view>{{list.name}}</view>
+      <view class="good_dis_price">¥{{list.currprice}}</view>
+    </view>
+  </view>
+  <view class='count' bindtap='num' data-value='{{num+1}}'>
+    <view class="count_control">
+      <view class="catalog_name">购买数量</view>
+      <view class="stepper">
+        <!-- 减号 -->
+        <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+        <!-- 数值 -->
+        <text type="number" bindchange="bindManual">{{num}}</text>
+        <!-- 加号 -->
+        <text class="normal" bindtap="bindPlus">+</text>
+      </view>
+    </view>
+  </view>
+  <view class="btn_area display-flex-row">
+    <view bindtap="saveOrder" class="goods_half_half bg_ff6700 color_fff" data-name='{{list}}'>立即购买</view>
+  </view>
+
+</view>

@@ -1,0 +1,156 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">已支付</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">未支付</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待评价</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+      <block wx:for="{{webpaids}}" wx:key="index">
+
+        <view class='orderlist'>
+          <block wx:for="{{item.items}}" wx:key="index">
+            <view class='commodity'>
+              <image mode="widthFix" class="item-image" src="https://api.changching.cn/{{item.asset}}"></image>
+              <view class='detaile'>
+                <text class='name'>{{item.name}}</text>
+              </view>
+            </view>
+            <view class='statistics'>
+              <view>共{{item.number}}件商品
+                <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>实付款：
+                <text class='price'>￥{{item.price}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+      <block wx:for="{{webtopaids}}" wx:key="index">
+        <view class='orderlist'>
+          <block wx:for="{{item.items}}" wx:key="index">
+            <view class='commodity'>
+              <image mode="widthFix" class="item-image" src="https://api.changching.cn/{{item.asset}}"></image>
+              <view class='detaile'>
+                <text class='name'>{{item.name}}</text>
+              </view>
+            </view>
+            <view class='statistics'>
+              <view>共{{item.number}}件商品
+                <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>待付款：
+                <text class='price'>￥{{item.price}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+      <block wx:for="{{webtocomms}}" wx:key="index">
+        <view class='orderlist' id='{{item.id}}'>
+          <view class='orderid'>订单号：{{item.id}}</view>
+          <block wx:for="{{item.items}}" wx:key="index">
+            <view class='commodity'>
+              <image mode="widthFix" class="item-image" src="https://api.changching.cn/{{item.asset}}"></image>
+              <view class='detaile'>
+                <text class='name'>{{item.name}}</text>
+                
+              </view>
+            </view>
+            <view class='statistics'>
+              <view class='tongji'>共{{item.number}}件商品
+                <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>实付款：
+                <text class='price'>￥{{item.price}}</text>
+              </view>
+              <view class='tocommbox'>
+                <view class='tocomm' bindtap="powerDrawer" data-id="{{item.caid}}" data-leibie='{{item.leibie}}' data-statu="open">点评</view>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{leibie=='红酒'}}">
+            <!--mask-->
+            <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+            <!--content-->
+            <!--使用animation属性指定需要执行的动画-->
+            <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+              <!--drawer content-->
+              <view class="drawer_title">标签点评</view>
+              <view class="drawer_content">
+                <checkbox-group class='free-radios' bindchange="checkChange">
+                  <label wx:for="{{items}}" wx:key="{{items}}" class="free-radio {{item.checked?'is_checked':''}}">
+                    <checkbox value="{{item.name}}" name="{{item.value}}" checked="{{item.checked}}" hidden='true'></checkbox>
+                    <label class="free-text">{{item.value}}</label>
+                  </label>
+                </checkbox-group>
+                <view class="btn_ok" bindtap="postComment" data-orderid='{{item.id}}' data-statu="close">确定</view>
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{leibie=='洋酒'}}">
+            <!--mask-->
+            <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+            <!--content-->
+            <!--使用animation属性指定需要执行的动画-->
+            <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+              <!--drawer content-->
+              <view class="drawer_title">标签点评</view>
+              <view class="drawer_content">
+                <checkbox-group class='free-radios' bindchange="checkChange">
+                  <label wx:for="{{yitems}}" wx:key="{{items}}" class="free-radio {{item.checked?'is_checked':''}}">
+                    <checkbox value="{{item.name}}" name="{{item.value}}" checked="{{item.checked}}" hidden='true'></checkbox>
+                    <label class="free-text">{{item.value}}</label>
+                  </label>
+                </checkbox-group>
+                <view class="btn_ok" bindtap="postComment" data-orderid='{{item.id}}' data-statu="close">确定</view>
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{leibie=='白酒'}}">
+            <!--mask-->
+            <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+            <!--content-->
+            <!--使用animation属性指定需要执行的动画-->
+            <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+              <!--drawer content-->
+              <view class="drawer_title">标签点评</view>
+              <view class="drawer_content">
+                <checkbox-group class='free-radios' bindchange="checkChange">
+                  <label wx:for="{{bitems}}" wx:key="{{items}}" class="free-radio {{item.checked?'is_checked':''}}">
+                    <checkbox value="{{item.name}}" name="{{item.value}}" checked="{{item.checked}}" hidden='true'></checkbox>
+                    <label class="free-text">{{item.value}}</label>
+                  </label>
+                </checkbox-group>
+                <view class="btn_ok" bindtap="postComment" data-orderid='{{item.id}}' data-statu="close">确定</view>
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{leibie=='啤酒'}}">
+            <!--mask-->
+            <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+            <!--content-->
+            <!--使用animation属性指定需要执行的动画-->
+            <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+              <!--drawer content-->
+              <view class="drawer_title">标签点评</view>
+              <view class="drawer_content">
+                <checkbox-group class='free-radios' bindchange="checkChange">
+                  <label wx:for="{{pitems}}" wx:key="{{items}}" class="free-radio {{item.checked?'is_checked':''}}">
+                    <checkbox value="{{item.name}}" name="{{item.value}}" checked="{{item.checked}}" hidden='true'></checkbox>
+                    <label class="free-text">{{item.value}}</label>
+                  </label>
+                </checkbox-group>
+                <view class="btn_ok" bindtap="postComment" data-orderid='{{item.id}}' data-statu="close">确定</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>

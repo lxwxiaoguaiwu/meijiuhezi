@@ -1,0 +1,143 @@
+/* pages/yidaogo/success/success.wxss */
+page{
+  background-color:#f4f4f4;
+}
+.btn{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+.back2{
+  background-color: #333;
+}
+.back1{
+  background-color: #ea5503;
+}
+.btn view{
+  flex: 1;
+}
+.c_title{
+  font-size: 30rpx;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+.comments{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.is_checked{
+  border: 1rpx solid #ea5503;
+  border-radius: 10rpx;
+}
+.is_checked .free-text{
+  color: #ea5503;
+}
+checkbox-group{
+  display: flex;
+}
+checkbox-group .free-text{
+  font-size: 28rpx;
+  color: #333;
+}
+checkbox-group .free-radio{
+  margin-left: 25rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+.submit{
+  background-color: #ea5503;
+  width: 150rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  margin: 50rpx auto;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}
+.back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #fff;
+  height: 100rpx;
+}
+.code{
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 20rpx;
+  text-align: center;
+  height: 616rpx;
+}
+.code .code_title{
+  font-size: 30rpx;
+  color: #333;
+  height: 102rpx;
+  line-height: 102rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.code .verification{
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  padding-top: 28rpx;
+  padding-bottom: 30rpx;
+}
+.code image{
+  width: 318rpx;
+  height: 318rpx;
+}
+.code .remarks{
+  font-size: 20rpx;
+  color: #666;
+  text-align: right;
+  padding-top: 30rpx;
+  padding-right: 5%;
+}
+.allgoods{
+  background-color: #fff;
+  /* margin-top: 20rpx; */
+  color: #333;
+
+
+}
+.allgoods .allgoods_title{
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding-left: 5%;
+}
+.allgoods .goodslist{
+  border-bottom: 1rpx solid #e5e5e5;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.allgoods .goodslist .list_title{
+  font-size: 28rpx;
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+}
+.allgoods .goodslist .box{
+  display: flex;
+  font-size: 26rpx;
+  color: #666;
+  justify-content: space-between;
+}
+.allgoods .goodslist .num{
+  padding-bottom: 30rpx;
+}
+.allgoods .goodslist .go{
+  font-size: 30rpx;
+}

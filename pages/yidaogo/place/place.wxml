@@ -1,0 +1,78 @@
+<!--pages/yidaogo/place/place.wxml-->
+<block wx:if="{{addlists}}">
+  <view class='address'>
+    <view class='addressinfo'>收货地址：{{addlists.addressinfo}}</view>
+    <view class='addbox'>
+      <view class='name'>收件人：{{addlists.name}}</view>
+      <view class='tel'>联系电话：{{addlists.tel}}</view>
+    </view>
+  </view>
+</block>
+<view class='shippingaddress' data-list='{{clists}}' bindtap='choiceAddress'>
+  <text>请选择收货地址</text>
+</view>
+
+<view class='buygoods'>
+  <text class='buygoods_title'>购买商品</text>
+  <block wx:if="{{leixing=='address'}}">
+    <block wx:for="{{clists}}" wx:key="index">
+      <view class='buygoods_content'>
+        <view class='content_list c1'>
+          <view class='pic'>
+            <image src="{{item.pic}}" alt="" />
+          </view>
+          <view class='content_words'>
+            <view class='words_title'>{{item.name}}</view>
+            <view class='num'>
+              <text class='count'>数量：{{item.num}}瓶</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:if="{{leixing=='one'}}">
+    <block wx:for="{{clists}}" wx:key="index">
+      <view class='buygoods_content'>
+        <view class='content_list c1'>
+          <view class='pic'>
+            <image src="{{item.pic}}" alt="" />
+          </view>
+          <view class='content_words'>
+            <view class='words_title'>{{item.name}}</view>
+            <view class='num'>
+              <text class='count'>数量：{{item.num}}瓶</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:if="{{leixing=='more'}}">
+    <block wx:for="{{clists}}" wx:key="index">
+      <view class='buygoods_content'>
+        <view class='content_list c2'>
+          <view class='pic'>
+            <image src="{{item.pic}}" alt="" />
+          </view>
+          <view class='content_words'>
+            <view class='words_title'>{{item.name}}</view>
+            <view class='num'>
+              <text class='count'>数量：{{item.num}}瓶</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>
+
+<view class='payment'>
+  <view class='money'>付款：
+    <view class='price'>￥{{addprice}}</view>
+  </view>
+  <view class='submit' data-list='{{clists}}' bindtap='goSubmit'>提交订单</view>
+</view>

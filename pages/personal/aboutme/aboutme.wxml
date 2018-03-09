@@ -1,0 +1,9 @@
+<!--pages/personal/aboutme/aboutme.wxml-->
+<view class='logo'>
+  <image class="item-image" src="../../images/we_logo.png"></image>
+</view>
+<view class='words'>
+  <p class='first'>美酒易到（北京）科技有限责任公司是专注酒类新零售的互联网公司。</p>
+  <p class='second'>“美酒易到”精选全球优质酒类商品，通过无人零售+线上零售+线下增值服务三个维度打造酒类新零售立体化服务体系，并始终致力于为用户提供更放心、更便捷、更好的用酒体验。</p>
+</view>
+<view class='companyname'>美酒易到（北京）科技有限责任公司</view>

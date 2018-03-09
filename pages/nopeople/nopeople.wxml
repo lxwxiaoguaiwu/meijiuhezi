@@ -1,0 +1,95 @@
+<!--pages/nopeople/nopeople.wxml-->
+<view class='cardbox'>
+  <view class='navcard'>
+    <ol class="nav bwizard-steps clearfix clickable" role="tablist">
+      <li role="tab" aria-selected="true" class="active" style="z-index: 4;">
+        <a href="#step1" class="hidden-phone">
+          <text style='font-size: 28rpx;'>01</text>
+          <text>选择商品</text>
+        </a>
+      </li>
+      <li role="tab" aria-selected="false" style="z-index: 2;">
+        <a href="#step3" class="hidden-phone">
+          <text style='font-size: 28rpx;'>02</text>
+          <text>确认订单</text>
+        </a>
+      </li>
+      <li role="tab" aria-selected="false" style="z-index: 1;">
+        <a href="#step4" class="hidden-phone">
+          <text style='font-size: 28rpx;'>03</text>
+          <text>购买成功</text>
+        </a>
+      </li>
+    </ol>
+    <view class='location' bindtap='choiceMap'>
+      <image src="../images/home_address_icon.png" alt="" />
+      <text class='address'>当前酒柜：{{boxname}}</text>
+    </view>
+  </view>
+</view>
+<view class='redwinebox'>
+  <view class='redwine'>
+    <view class='redwine-title'>
+      <view class='icon'></view>
+      <text>红酒</text>
+    </view>
+    <view class='redwine-lists'>
+      <block wx:for="{{winelist}}" wx:key="index">
+        <view class='list' id='{{item.id}}' data-boxname='{{boxname}}' data-boxlat='{{boxlat}}' data-boxlng='{{boxlng}}' bindtap='getRedwine'>
+          <image mode="widthFix" src="{{item.winepic}}" alt="" />
+          <text class='winename'>{{item.name}}</text>
+          <text class='price'>￥{{item.price}}</text>
+          <!-- <text class='kucun'>库存：{{item.number}}瓶</text> -->
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='redwine'>
+    <view class='redwine-title'>
+      <view class='icon'></view>
+      <text>白酒</text>
+    </view>
+    <view class='redwine-lists'>
+      <block wx:for="{{whiteslist}}" wx:key="index">
+        <view class='list' id='{{item.id}}' data-boxname='{{boxname}}' data-boxlat='{{boxlat}}' data-boxlng='{{boxlng}}' bindtap='getRedwine'>
+          <image mode="widthFix" src="{{item.winepic}}" alt="" />
+          <text class='winename'>{{item.name}}</text>
+          <text class='price'>￥{{item.price}}</text>
+          <!-- <text class='kucun'>库存：{{item.number}}瓶</text> -->
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='redwine'>
+    <view class='redwine-title'>
+      <view class='icon'></view>
+      <text>洋酒</text>
+    </view>
+    <view class='redwine-lists'>
+      <block wx:for="{{yangjiuslist}}" wx:key="index">
+        <view class='list' id='{{item.id}}' data-boxname='{{boxname}}' data-boxlat='{{boxlat}}' data-boxlng='{{boxlng}}' bindtap='getRedwine'>
+          <image mode="widthFix" src="{{item.winepic}}" alt="" />
+          <text class='winename'>{{item.name}}</text>
+          <text class='price'>￥{{item.price}}</text>
+          <!-- <text class='kucun'>库存：{{item.number}}瓶</text> -->
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='redwine'>
+    <view class='redwine-title'>
+      <view class='icon'></view>
+      <text>啤酒</text>
+    </view>
+    <view class='redwine-lists'>
+      <block wx:for="{{beerslist}}" wx:key="index">
+        <view class='list' id='{{item.id}}' data-boxname='{{boxname}}' data-boxlat='{{boxlat}}' data-boxlng='{{boxlng}}' bindtap='getRedwine'>
+          <image mode="widthFix" src="{{item.winepic}}" alt="" />
+          <text class='winename'>{{item.name}}</text>
+          <text class='price'>￥{{item.price}}</text>
+          <!-- <text class='kucun'>库存：{{item.number}}瓶</text> -->
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

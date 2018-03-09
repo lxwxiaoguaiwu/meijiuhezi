@@ -1,0 +1,17 @@
+<!--pages/yidaogo/success/success.wxml-->
+<view class='allgoods'>
+  <view class='allgoods_title'>全部商品</view>
+  <block wx:for="{{ssclists}}" wx:key="index">
+    <view class='goodslist'>
+      <view class='list_title'>{{item.name}}</view>
+      <view class='box'>
+        <view class='num'>数量：{{item.num}}瓶</view>
+        <view class='go'>></view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='btn'>
+  <view class='back back2' bindtap='back'>回到首页</view>
+  <view class='back back1' bindtap='gocomment'>去评价</view>
+</view>

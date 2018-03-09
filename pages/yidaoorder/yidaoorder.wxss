@@ -1,0 +1,271 @@
+/* pages/order/order.wxss */
+ page{
+  background-color:#f4f4f4;
+  height: 100%;
+}
+.orderid{
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 5%;
+  margin-top: 10rpx;
+}
+checkbox-group{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.free-radio{
+  width: 150rpx;
+  text-align: center;
+  border: 1rpx solid #333;
+  margin-right: 30rpx;
+  border-radius: 10rpx;
+  margin-bottom: 40rpx;
+}
+.is_checked{
+  border: 1rpx solid #ea5503;
+  border-radius: 10rpx;
+}
+.is_checked .free-text{
+  color: #ea5503;
+}
+.free-text{
+  font-size: 28rpx;
+  color: #333;
+}
+.tocomm{
+  width: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1rpx solid #ea5504;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  margin-top: 25rpx;
+}
+.ordertitle{
+  font-size: 32rpx;
+  color: #333;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+}
+.orderlist{
+  background-color: #fff;
+  margin-top: 20rpx;
+  
+  padding-bottom: 20rpx;
+}
+.orderlist .commodity{
+  display: flex;
+  padding: 5% 5%;
+  height: auto;
+  align-items: center
+}
+.orderlist .commodity .detaile{
+  display: flex;
+  flex-direction: column
+}
+.orderlist image{
+  width:70rpx;
+  display:block;
+}
+.orderlist .name{
+  padding-bottom: 20rpx;
+  color: #333;
+}
+.orderlist .boxname{
+  color: #666;
+}
+.orderlist .name,
+.orderlist .boxname{
+  font-size: 24rpx;
+  flex: 1;
+  padding-left: 60rpx;
+}
+.tocommbox{
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: flex-end;
+}
+.orderlist .statistics{
+  width: 90%;
+  margin: 0 auto;
+  font-size: 26rpx;
+  color: #333;
+  text-align: right;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+  
+}
+.orderlist .statistics .price{
+  color: #ea5504;
+  font-size: 28rpx;
+}
+swiper{
+  height: 100%;
+} 
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  background-color:white;
+}
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 32%;
+  color: #777;
+  border-bottom: 0rpx;
+}
+.on {
+  color: #da7c0c;
+  border-bottom: 2rpx solid #da7c0c;
+}
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.btnbox{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn{
+  width: 100rpx;
+  border: 2rpx solid #da7c0c;
+  border-radius: 15rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+swiper-tab{
+  width: 100%; 
+  border-bottom: 2rpx solid #777777; 
+  text-align: center; 
+  line-height: 80rpx;
+}
+swiper-tab-list{
+  font-size: 30rpx; 
+  display: inline-block; 
+  width: 33%; 
+  color: #777777; 
+} 
+on{ 
+  color: #da7c0c; 
+  border-bottom: 5rpx solid #da7c0c;
+}
+swiper-box{
+  display: block; 
+  height: 100%;
+  width: 100%; 
+  overflow: hidden; 
+} 
+swiper-box view{ 
+  text-align: center; 
+} 
+
+
+
+/*button*/
+.btn { 
+ width: 80%; 
+ padding: 20rpx 0; 
+ border-radius: 10rpx; 
+ text-align: center; 
+ margin: 40rpx 10%; 
+ background: #000; 
+ color: #fff; 
+} 
+  
+/*mask*/
+.drawer_screen { 
+ width: 100%; 
+ height: 100%; 
+ position: fixed; 
+ top: 0; 
+ left: 0; 
+ z-index: 1000; 
+ background: #000; 
+ opacity: 0.5; 
+ overflow: hidden; 
+} 
+  
+/*content*/
+.drawer_box { 
+ width: 650rpx; 
+ overflow: hidden; 
+ position: fixed; 
+ top: 50%; 
+ left: 0; 
+ z-index: 1001; 
+ background: #FAFAFA; 
+ margin: -150px 50rpx 0 50rpx; 
+ border-radius: 3px; 
+} 
+  
+.drawer_title{ 
+ padding:15px; 
+ font-size: 28rpx;
+ color: #ea5503; 
+ text-align: center; 
+} 
+.btn_ok{ 
+ padding: 10px; 
+ font-size: 32rpx;
+ text-align: center; 
+ border-top: 1px solid #E8E8EA; 
+ color: #333; 
+} 
+  
+.top{ 
+ padding-top:8px; 
+} 
+.bottom { 
+ padding-bottom:8px; 
+} 
+.title { 
+ height: 30px; 
+ line-height: 30px; 
+ width: 160rpx; 
+ text-align: center; 
+ display: inline-block; 
+ font: 300 28rpx/30px "microsoft yahei"; 
+} 
+  
+.input_base { 
+ border: 2rpx solid #ccc; 
+ padding-left: 10rpx; 
+ margin-right: 50rpx; 
+} 
+.input_h30{ 
+ height: 30px; 
+ line-height: 30px; 
+} 
+.input_h60{ 
+ height: 60px; 
+} 
+.input_view{ 
+ font: 12px "microsoft yahei"; 
+ background: #fff; 
+ color:#000; 
+ line-height: 30px; 
+} 
+  
+input { 
+ font: 12px "microsoft yahei"; 
+ background: #fff; 
+ color:#000 ; 
+} 
+radio{ 
+ margin-right: 20px; 
+} 
+.grid { display: -webkit-box; display: box; } 
+.col-0 {-webkit-box-flex:0;box-flex:0;} 
+.col-1 {-webkit-box-flex:1;box-flex:1;} 
+.fl { float: left;} 
+.fr { float: right;}

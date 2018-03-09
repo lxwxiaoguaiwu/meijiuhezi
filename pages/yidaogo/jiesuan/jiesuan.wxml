@@ -1,0 +1,46 @@
+<view class='cartitlebox'>
+  <view class='cartitle cartitle1'>购物车</view>
+  <view class='cartitle qingkong' bindtap='qingkong'>清空购物车</view>
+</view>
+ <block wx:if="{{carlists==''}}">
+  <view class='none'>您的购物车空空如也，快去选购吧~</view>
+  <view class='xuangou' bindtap='xuangou'>去选酒</view>
+</block>
+<block wx:if="{{carlists!=''}}">
+  <view class='bg'>
+    <view wx:for="{{carlists}}" wx:key="index" class="carts-item" data-title="{{item.title}}" bindtap="bindViewTap">
+      <view class="my-wrap">
+        <view class="my-list bordernone">
+          <icon wx:if="{{item.selected}}" type="success" color="red" size="20" bindtap="bindCheckbox" data-index="{{index}}" class="my-check" />
+          <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}" class="my-check" />
+          <image src="{{item.asset}}" class="my-pic" mode="aspectFill"></image>
+          <view class="my-left">
+            <view class="my-title">{{item.name}}</view>
+            <view class="my-bnt">
+              <text class="{{minusStatuses[index]}} bnt" data-index="{{index}}" data-selected="{{item.selected}}" data-price="{{item.price}}" bindtap="bindMinus">-</text>
+              <input type="number" bindchange="bindManual" class="int" value="{{item.number}}" />
+              <text class="normal bnt" data-selected="{{item.selected}}" data-index="{{index}}" data-price="{{item.price}}" data-num="{{item.number}}" bindtap="bindPlus">+</text>
+            </view>
+          </view>
+          <view class="my-right">
+            <text class="gay">￥{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+  <view class="float">
+    <view class="my-rightbox">
+      <view class="my-count" data='{{sep}}'>
+        合计：￥
+        <text>{{count}}</text>
+      </view>
+      <view class="my-bnts" data-list='currlist' bindtap="setPayment">
+        <text>去结算</text>
+      </view>
+    </view>
+
+  </view>
+</block> 

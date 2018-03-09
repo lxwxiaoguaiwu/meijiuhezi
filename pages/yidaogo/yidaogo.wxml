@@ -1,0 +1,88 @@
+<!--pages/yidaogo/yidaogo.wxml-->
+<!-- <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{swiperlists}}" wx:key = "index">
+    <swiper-item>
+      <image src="{{item.asset}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>  -->
+<view class='detailebox'>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" data-zhonglei="红酒" bindtap="swichNav">红酒</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" data-zhonglei="白酒" bindtap="whitesNav">白酒</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" data-zhonglei="洋酒" bindtap="yangjiusNav">洋酒</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" data-zhonglei="啤酒" bindtap="beersNav">啤酒</view>
+  </view>
+  <swiper style="height:{{scrollH}}px;overflow-y: auto; " current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+    <!-- 我是红酒 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+        <block wx:if="{{winelists==''}}">
+          <view class='nobeer'>暂无红酒上架</view>
+        </block>
+        <view class='redwine-lists'>
+          <block wx:for="{{winelists}}" wx:key="index">
+            <view class='list' id='{{item.id}}' bindtap='getRedwine'>
+              <image mode="widthFix" src="{{item.asset}}" alt="" />
+              <text class='winename'>{{item.name}}</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 我是白酒 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+        <block wx:if="{{whiteslists==''}}">
+          <view class='nobeer'>暂无白酒上架</view>
+        </block>
+        <view class='redwine-lists'>
+          <block wx:for="{{whiteslists}}" wx:key="index">
+            <view class='list' id='{{item.id}}' bindtap='getRedwine'>
+              <image mode="widthFix" src="{{item.asset}}" alt="" />
+              <text class='winename'>{{item.name}}</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 我是洋酒 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+        <block wx:if="{{yangjiuslists==''}}">
+          <view class='nobeer'>暂无洋酒上架</view>
+        </block>
+        <view class='redwine-lists'>
+          <block wx:for="{{yangjiuslists}}" wx:key="index">
+            <view class='list' id='{{item.id}}' bindtap='getRedwine'>
+              <image mode="widthFix" src="{{item.asset}}" alt="" />
+              <text class='winename'>{{item.name}}</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 我是啤酒 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px;">
+        <block wx:if="{{beerslists==''}}">
+          <view class='nobeer'>暂无啤酒上架</view>
+        </block>
+        <view class='redwine-lists'>
+          <block wx:for="{{beerslists}}" wx:key="index">
+            <view class='list' id='{{item.id}}' bindtap='getRedwine'>
+              <image mode="widthFix" src="{{item.asset}}" alt="" />
+              <text class='winename'>{{item.name}}</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
